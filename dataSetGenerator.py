@@ -36,7 +36,7 @@ while True:
     #Save the result image
     if len(faces):
         count = count + 1
-        img_item = "dataSet/User."+ face_id + '.' + str(i) + ".jpg"
+        img_item = "dataSet/User."+ face_id + '.' + str(count) + ".jpg"
         cv2.imwrite(img_item,roi_gray)
         
     cv2.imshow("Frame", image)
