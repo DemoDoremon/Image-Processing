@@ -12,10 +12,10 @@ while True:
     #Here you can also specify other parameters (e.g.:rotate the image)
     with picamera.PiCamera() as camera:
         camera.resolution = (320, 240)
-        camera.capture(stream, format='jpeg')
+        camera.capture(stream, format ='jpeg')
 
     #Convert the picture into a numpy array
-    buff = np.fromstring(stream.getvalue(), dtype=np.uint8)
+    buff = np.fromstring(stream.getvalue(), dtype = np.uint8)
 
     #Now creates an OpenCV image
     image = cv2.imdecode(buff, 1)
