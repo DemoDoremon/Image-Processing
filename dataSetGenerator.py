@@ -2,8 +2,8 @@ import io
 import picamera
 import cv2
 import numpy as np
-i=0
-name =input("\n Enter user id :")
+count = 0
+face_id = input("\n Enter user id :")
 while True:
     #Create a memory stream so photos doesn't need to be saved in a file
     stream = io.BytesIO()
@@ -35,14 +35,14 @@ while True:
         print(x,y,w,h)
     #Save the result image
     if len(faces):
-        i=i+1
-        img_item = "dataSet/User."+ name + '.' + str(i) + ".jpg"
+        count = count + 1
+        img_item = "dataSet/User."+ face_id + '.' + str(i) + ".jpg"
         cv2.imwrite(img_item,roi_gray)
         
     cv2.imshow("Frame", image)
     if cv2.waitKey(1) & 0xff == ord("q"):
 	    exit()
-    if i == 100:
+    if count == 100:
         exit()
     stream.truncate(0)
     stream.seek(0)
