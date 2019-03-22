@@ -9,7 +9,7 @@ detector = cv2.CascadeClassifier('/home/pi/Desktop/Image-Processing-master/haarc
 # function to get the images and label data
 def getImagesAndLabels(path):
     imagePaths = [os.path.join(path,f) for f in os.listdir(path)]     
-    faceSamples=[]
+    faceSamples = []
     ids = []
     for imagePath in imagePaths:
         PIL_img = Image.open(imagePath).convert('L') # convert it to grayscale
