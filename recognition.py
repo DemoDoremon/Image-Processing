@@ -1,5 +1,6 @@
-import cv2,numpy
-import io,picamera
+import cv2
+import io
+import picamera
 import numpy as np
 import os 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -22,7 +23,7 @@ while True:
         camera.capture(stream, format='jpeg')
 
     #Convert the picture into a numpy array
-    buff = numpy.fromstring(stream.getvalue(), dtype=numpy.uint8)
+    buff = np.fromstring(stream.getvalue(), dtype=np.uint8)
 
     #Now creates an OpenCV image
     image = cv2.imdecode(buff, 1)

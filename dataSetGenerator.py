@@ -1,9 +1,9 @@
 import io
 import picamera
 import cv2
-import numpy
+import numpy as np
 i=0
-name =input("nhập id:")
+name =input("\n Enter user id :")
 while True:
     #Create a memory stream so photos doesn't need to be saved in a file
     stream = io.BytesIO()
@@ -15,7 +15,7 @@ while True:
         camera.capture(stream, format='jpeg')
 
     #Convert the picture into a numpy array
-    buff = numpy.fromstring(stream.getvalue(), dtype=numpy.uint8)
+    buff = np.fromstring(stream.getvalue(), dtype=np.uint8)
 
     #Now creates an OpenCV image
     image = cv2.imdecode(buff, 1)
