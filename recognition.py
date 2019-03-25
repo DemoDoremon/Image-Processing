@@ -3,9 +3,9 @@ from picamera import PiCamera
 import cv2
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
-camera.resolution = (640, 480)
+camera.resolution = (320, 240)
 camera.framerate = 24
-rawCapture = PiRGBArray(camera, size=(640, 480))
+rawCapture = PiRGBArray(camera, size=(320, 240))
 #use Local Binary Patterns Histograms
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 #Load a trainer file
