@@ -88,11 +88,13 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
             cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
             cv2.putText(image,"("+str(center[0])+","+str(center[1])+")", (center[0]+10,center[1]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
  
-    # show the frame to our screen
+    # show the frame to your screen
     cv2.imshow("Original", image)
     cv2.imshow("Detected", resultHSV)
     cv2.imshow("Mask", mask)
+    #wait for 'q' key was pressed and break from the loop
     if cv2.waitKey(1) & 0xFF == ord('q'):
         exit()
+    # clear the stream in preparation for the next frame
     rawCapture.truncate(0)
  
