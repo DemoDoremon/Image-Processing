@@ -64,16 +64,13 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
     resultHSV = cv2.bitwise_and(image,image, mask= mask)
  
-    # find contours in the mask and initialize the current
-    # (x, y) center of the ball
+    # find contours in the mask and initialize the current(x, y) center of the ball
     cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]
     center = None
  
     # only proceed if at least one contour was found
     if len(cnts) > 0:
-        # find the largest contour in the mask, then use
-        # it to compute the minimum enclosing circle and
-        # centroid
+        # find the largest contour in the mask, then use it to compute the minimum enclosing circle and centroid
         c = max(cnts, key=cv2.contourArea)
         ((x, y), radius) = cv2.minEnclosingCircle(c)
         M = cv2.moments(c)
@@ -81,8 +78,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
  
         # only proceed if the radius meets a minimum size
         if radius > 10:
-            # draw the circle and centroid on the frame,
-            # then update the list of tracked points
+            # draw the circle and centroid on the frame, then update the list of tracked points
             cv2.circle(image, (int(x), int(y)), int(radius),(0, 255, 255), 2)
             cv2.circle(image, center, 3, (0, 0, 255), -1)
             cv2.putText(image,"centroid", (center[0]+10,center[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 0, 255),1)
