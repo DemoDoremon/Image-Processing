@@ -24,7 +24,7 @@ rawCapture = PiRGBArray(camera, size=(320, 240))
 
 # capture frames from the camera
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-    
+    # convert frame to array
     image = frame.array
 
     # converting frame(img == BGR) to HSV(hue-saturation-value)
