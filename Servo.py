@@ -68,7 +68,7 @@ def test():
     p.ChangeDutyCycle(0)
     p1.ChangeDutyCycle(0)
     return render_template_string(TPL)
-app.run(debug=True, host='0.0.0.0', port=8700) 
+app.run(debug=True, host='0.0.0.0', port=8000) 
  
 # Run the app on the local development server
 #if __name__ == "__main__":
